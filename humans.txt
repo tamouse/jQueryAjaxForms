@@ -3,11 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Tamara Temple -- author -- @tamouse
 
 # THANKS
 
-    <name>
+    everyone
 
 # TECHNOLOGY COLOPHON
 
