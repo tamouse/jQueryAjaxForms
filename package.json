@@ -1,0 +1,23 @@
+{
+  "name": "jquery-ajax-forms-example",
+  "version": "0.1.0",
+  "description": "An example of a simple application using jQuery ajax calls to post forms and update a page",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "example",
+    "jquery",
+    "ajax",
+    "forms"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.9.6"
+  }
+}
