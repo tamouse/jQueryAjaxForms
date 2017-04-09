@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Tamara",
+      "email": "tamara@tamouse.org",
+      "bio": "geeky girl"
+    }
+  ]
+}

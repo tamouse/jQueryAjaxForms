@@ -7,6 +7,9 @@
     "doc": "doc"
   },
   "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run app\" ",
+    "app": "browser-sync start --config bs-config.js",
+    "server": "json-server --config json-server.json db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,9 +18,20 @@
     "ajax",
     "forms"
   ],
-  "author": "",
+  "author": "tamara@tamouse.org",
   "license": "ISC",
   "dependencies": {
+    "browser-sync": "^2.18.8",
+    "concurrently": "^3.4.0",
     "json-server": "^0.9.6"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamouse/jQueryAjaxForms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tamouse/jQueryAjaxForms/issues"
+  },
+  "homepage": "https://github.com/tamouse/jQueryAjaxForms#readme"
 }
