@@ -5,7 +5,10 @@ const API_URL = 'http://localhost:33333/contacts';
 // @param data - the serialized form data
 // @param result - callback to run on sucessful result
 function handleSubmit(data, result) {
-    console.log("dirty data: ", data);
+
+    // Cleaning up the data before it gets submitted.
+    // Ideally we'd do this on the server side, but showing this here
+    // since json-server is very simple.
     data = data.map(function (item) {
         item.value = item.value
             .replace(/&/g, '&amp;')
@@ -14,7 +17,6 @@ function handleSubmit(data, result) {
             .replace(/"/g, '&quot;');
         return item;
     });
-    console.log("cleaned data: ", data);
 
     // The jQuery ajax call starts with the object containing
     // the information needed to make the call, then there are
@@ -44,6 +46,10 @@ function handleSubmit(data, result) {
         })
 }
 
+
+// Get the collection of contacts from the server
+// When the list is retrieved, call the showContacts method
+// to put the info on the page.
 function getContacts() {
     // This ajax call retrieves the full list of contacts
     // from the server and displays them.
@@ -62,13 +68,21 @@ function getContacts() {
 }
 
 // formatting function to display the contact object
+//
+// @param contact - the contact object
+// @field id [int]
+// @field name [str]
+// @field email [str]
+// @field bio [str]
+//
+// The bio is truncated
 function formatContact(contact) {
     let output = '';
     output += `<li id="contact-${contact.id}">`;
     output += `${contact.name} &lt;${contact.email}&gt;`;
     output += ' ';
     // truncating just in case someone enters in ten million characters
-    output += `<small>${contact.bio.substr(0, 50)}</small>`;
+    output += `<small>${contact.bio.substr(0, 250)}</small>`;
     output += '</li>';
     return output;
 }
@@ -92,7 +106,8 @@ function showContacts(contacts) {
     contactsDisplay.html(contactList);
 }
 
-// running this only after the document is ready
+// Initialize the page app
+// (Run this only after the document is ready, i.e. fully loaded)
 $(function () {
     const form = $('#the-form');
 
@@ -103,6 +118,11 @@ $(function () {
         // passing in the serialized form data as an array;
         // ('this' in the event handler refers to the form.)
         handleSubmit($(this).serializeArray(), getContacts);
+
+        // reset the form for the next submission
+        $(this).each(function () {
+            this.reset();
+        })
     });
 
     // Initialize the display
