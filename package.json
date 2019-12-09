@@ -1,6 +1,11 @@
 {
   "name": "jquery-ajax-forms-example",
   "version": "0.1.0",
+  "author": {
+    "name": "Tamara Temple",
+    "email": "tamouse@gmail.com",
+    "url": "https://github.com/tamouse"
+  },
   "description": "An example of a simple application using jQuery ajax calls to post forms and update a page",
   "main": "index.js",
   "directories": {
@@ -18,7 +23,6 @@
     "ajax",
     "forms"
   ],
-  "author": "tamara@tamouse.org",
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.18.8",
